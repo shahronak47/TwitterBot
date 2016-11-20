@@ -7,5 +7,8 @@ options(httr_oauth_cache=T)
 setup_twitter_oauth(api_key,api_secret,access_token,access_token_secret)
 searchResult <- searchTwitter('#GoodMorning', n=1, lang = 'en')
 tweetDetailsDF <- twListToDF(searchResult)
-updateStatus(paste(paste0("@", tweetDetailsDF$screenName), "Good Morning, Have a nice day! :) "), inReplyTo = tweetDetailsDF$id)
+
+if(!tweetDetailsDF$isRetweet) {
+updateStatus(paste0("@", tweetDetailsDF$screenName, " Good Morning, Have a nice day! :-) "), inReplyTo = tweetDetailsDF$id)
+}
   
