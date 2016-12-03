@@ -24,7 +24,7 @@ if(!identical(followpeople, character(0))) {
 if(!identical(unfollowpeople, character(0))) {
   command ="python"
   path2script="D:/destroy_friendships.py"
-  sapply(followpeople, function(x) {
+  sapply(unfollowpeople, function(x) {
     allArgs = c(path2script, x)
     output = system2(command, args=allArgs, stdout=TRUE)
   })
