@@ -15,6 +15,11 @@ if __name__ == "__main__":
         if not tweet.retweeted :
             api.update_status("@" + tweet.user.screen_name + " Good Morning, Have a nice day! :-) ", tweet.id)
 
+        except Exception as error :
+        #Handle duplicate status exception
+            if error[0][0]['code'] == 187 :
+                tweet = searchResult[1]
+                api.update_status("@" + tweet.user.screen_name + " Good Morning, Have a nice day! :-) ", tweet.id)
         #Get the followers
         followerIds = api.followers_ids()
         friendIds = api.friends_ids()
