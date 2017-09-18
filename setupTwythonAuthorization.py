@@ -2,7 +2,7 @@ from twython import Twython
 import yaml
 
 def twython_authorization () :
-    envconfig = 'F:\My Stuff\Python Twitter Project\keys.yml'
+    envconfig = 'keys.yml'
     with open(envconfig, 'r') as f:
         doc = yaml.load(f)
 
