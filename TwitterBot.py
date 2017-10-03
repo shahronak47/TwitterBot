@@ -7,13 +7,14 @@ if __name__ == "__main__":
 
     #Setting up twitter authorization
     api = setupTwitterAutorization()
+    try: 
     #Search for #GoodMorning
-    searchResult = api.search('#GoodMorning -filter:retweets', count = 1)
-    #Take only first tweet
-    if not not searchResult:
-        tweet = searchResult[0]
-        if not tweet.retweeted :
-            api.update_status("@" + tweet.user.screen_name + " Good Morning, Have a nice day! :-) ", tweet.id)
+        searchResult = api.search('#GoodMorning -filter:retweets', count = 1)
+        #Take only first tweet
+        if not not searchResult:
+            tweet = searchResult[0]
+            if not tweet.retweeted :
+                api.update_status("@" + tweet.user.screen_name + " Good Morning, Have a nice day! :-) ", tweet.id)
 
         except Exception as error :
         #Handle duplicate status exception
