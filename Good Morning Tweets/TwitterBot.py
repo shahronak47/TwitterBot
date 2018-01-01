@@ -6,7 +6,7 @@ import pdb
 if __name__ == "__main__":
 
     #Setting up twitter authorization
-    api = setupTwitterAutorization()
+    api = setupTwitterAutorization('keys.yml')
     try: 
     #Search for #GoodMorning
         searchResult = api.search('#GoodMorning -filter:retweets', count = 1)

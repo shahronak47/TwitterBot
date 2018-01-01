@@ -1,8 +1,7 @@
 import tweepy
 import yaml
 
-def setupTwitterAutorization() :
-    envconfig = 'keys.yml'
+def setupTwitterAutorization(envconfig) :
     with open(envconfig, 'r') as f:
         doc = yaml.load(f)
 
