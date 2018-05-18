@@ -20,9 +20,12 @@ if __name__ == "__main__":
     friendIds = api.friends_ids()
     # Get people to follow
     followIds = list(set(followerIds) - set(friendIds))
+    #Follow only max of 10 ID's
+    followIds = followIds[:10]
     # Get people to unfollow
     unfollowIds = list(set(friendIds) - set(followerIds))
-
+    # Unfollow only max of 10 ID's
+    unfollowIds = unfollowIds[:10]
     if not not followIds:
         create_frienships(followIds)
 
